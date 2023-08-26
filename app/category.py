@@ -26,7 +26,7 @@ def add_category():
     if not (2 <= len(data["name"]) <= 64) :
         return {"error" : f"the name must be beetween 2 and 64 characters"}, 400
     
-    # Check category with the title is exist
+    # Check category is exist
     data_name = data['name'].lower()
     categories = run_query(f''' SELECT * FROM categories WHERE name='{data_name}' ''')
     if len(categories) != 0 :

@@ -4,17 +4,25 @@ from sqlalchemy.exc import IntegrityError
 from dotenv import load_dotenv
 from pathlib import Path
 
-load_dotenv(".env")
+# load_dotenv(".env")
 
 def get_engine():
     """Creating SQLite Engine to interact"""
 
+    # engine_uri = "postgresql+psycopg2://{}:{}@{}:{}/{}".format(
+    #     os.getenv("POSTGRES_USER"),
+    #     os.getenv("POSTGRES_PASSWORD"),
+    #     os.getenv("POSTGRES_HOST"),
+    #     os.getenv("POSTGRES_PORT"),
+    #     os.getenv("POSTGRES_DB"),
+    # )
+
     engine_uri = "postgresql+psycopg2://{}:{}@{}:{}/{}".format(
-        os.getenv("POSTGRES_USER"),
-        os.getenv("POSTGRES_PASSWORD"),
-        os.getenv("POSTGRES_HOST"),
-        os.getenv("POSTGRES_PORT"),
-        os.getenv("POSTGRES_DB"),
+        "postgres",
+        "postgres",
+        "recipe-db",
+        "5432",
+        "recipe-db",
     )
 
     return create_engine(engine_uri, future=True)

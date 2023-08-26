@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    container_name: recipe
+    depends_on:
+      - db
+    ports:
+      - "5000:5000"
+  db:
+    image: postgres
+    container_name: recipe-db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST=recipe-db
+      - POSTGRES_DB=recipe-db

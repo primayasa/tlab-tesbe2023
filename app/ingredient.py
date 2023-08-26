@@ -24,7 +24,7 @@ def add_ingredient():
     if not (2 <= len(data["name"]) <= 64) :
         return {"error" : "the name must be beetween 2 and 64 characters"}, 400
     
-    # Check ingredient with the title is exist
+    # Check ingredient is exist
     data_name = data['name'].lower()
     ingredients = run_query(f''' SELECT * FROM ingredients WHERE name='{data_name}' ''')
     if len(ingredients) != 0 :
